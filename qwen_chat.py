@@ -1,4 +1,5 @@
 from llms import QwenWrapper
+from termcolor import colored
 
 # qwen = QwenWrapper(system_prompt="You are a helpful robotic exercise coach. You work with older adults, and you want people to be healthy.")
 qwen = QwenWrapper()
@@ -8,4 +9,4 @@ while True:
         break
 
     response = qwen.query(ui)
-    print("\n", response, "\n")
+    print("\n", colored(response, "green"), "\n")
