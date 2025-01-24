@@ -1,0 +1,21 @@
+conda create -n llm python=3.12
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+
+# in python, check if torch.cuda.is_available()
+
+pip install transformers
+
+# test code from https://huggingface.co/Qwen/Qwen1.5-0.5B-Chat-GPTQ-Int8
+# note: ended up not using the model with quantized weights linked above bc of package issues
+
+# missing stuff
+pip install 'accelerate>=0.26.0'
+pip install optimum
+
+# had to purge and reinstall cuda
+sudo apt-get purge nvidia-*
+sudo apt-get purge libnvidia-*
+sudo apt update
+sudo ubuntu-drivers autoinstall
+# reboot
+sudo apt install nvidia-cuda-toolkit
