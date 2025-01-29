@@ -1,14 +1,21 @@
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
+class QwenVersion:
+    Chat05B = "Qwen/Qwen1.5-0.5B-Chat"
+    Main7B = "Qwen/Qwen2.5-7B"
+
 class QwenWrapper:
-    def __init__(self, device: str = "cuda", system_prompt: str = "You are a helpful assistant."):
-        print("Initializing Qwen... ", end="")
+    def __init__(self,
+                 model: QwenVersion = QwenVersion.Chat05B,
+                 device: str = "cuda",
+                 system_prompt: str = "You are a helpful assistant."):
+        print(f"Initializing model {model}... ", end="")
 
         self.device = device
         self.system_prompt = system_prompt
 
         self.model = AutoModelForCausalLM.from_pretrained(
-            "Qwen/Qwen1.5-0.5B-Chat",
+            model,
             torch_dtype="auto",
             device_map="auto"
         )

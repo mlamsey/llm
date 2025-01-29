@@ -1,0 +1,10 @@
+# huggingface
+transformers
+datasets
+
+# huggingface adjacent
+accelerate>=0.26.0
+optimum
+
+# QoL
+termcolor

@@ -31,9 +31,7 @@ def install():
     install_torch()
 
     # other stuff
-    os.system("pip install transformers")
-    os.system("pip install 'accelerate>=0.26.0'")
-    os.system("pip install optimum")
+    os.system("pip install -r requirements.txt")
 
 if __name__ == "__main__":
     ui = input("Enter 'y' to install torch and other dependencies: ").lower()
